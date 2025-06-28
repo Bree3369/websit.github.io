@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星际穿越 - 电影介绍</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 导航栏 */
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f0c14b;
+        }
+        
+        /* 电影主信息区 */
+        .movie-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://example.com/interstellar-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .movie-info {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        
+        .poster {
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .details {
+            flex: 1;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .stars {
+            color: #f0c14b;
+            margin-right: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #f0c14b;
+            color: #111;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ddb347;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #f0c14b;
+            color: #f0c14b;
+        }
+        
+        /* 剧情部分 */
+        .plot {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0c14b;
+        }
+        
+        /* 演职员表 */
+        .cast {
+            margin-bottom: 2rem;
+        }
+        
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .cast-member {
+            text-align: center;
+        }
+        
+        .cast-photo {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 预告片 */
+        .trailer {
+            margin-bottom: 2rem;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .movie-info {
+                flex-direction: column;
+            }
+            
+            .poster {
+                width: 200px;
+                margin: 0 auto 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">电影天堂</div>
+                <div class="nav-links">
+                    <a href="#">首页</a>
+                    <a href="#">电影</a>
+                    <a href="#">电视剧</a>
+                    <a href="#">排行榜</a>
+                    <a href="#">关于我们</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="movie-hero">
+        <div class="container">
+            <div class="movie-info">
+                <img src="https://example.com/interstellar-poster.jpg" alt="星际穿越海报" class="poster">
+                <div class="details">
+                    <h1 class="title">星际穿越 Interstellar</h1>
+                    <div class="meta">
+                        <span>2014</span>
+                        <span>169分钟</span>
+                        <span>科幻/冒险</span>
+                        <span>美国</span>
+                    </div>
+                    <div class="rating">
+                        <div class="stars">★★★★★</div>
+                        <span>9.3/10</span>
+                    </div>
+                    <p>导演: 克里斯托弗·诺兰</p>
+                    <p>主演: 马修·麦康纳 / 安妮·海瑟薇 / 杰西卡·查斯坦</p>
+                    
+                    <a href="#" class="btn">立即观看</a>
+                    <a href="#" class="btn btn-outline">收藏</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section class="plot">
+            <h2 class="section-title">剧情简介</h2>
+            <p>《星际穿越》讲述了在不远的未来，地球气候恶化，粮食危机严重，人类面临灭绝的危险。前NASA宇航员库珀（马修·麦康纳饰）被选中带领一支探险队穿越虫洞，寻找适合人类居住的新家园。</p>
+            <p>在穿越银河系的旅途中，他们不仅要面对宇宙的浩瀚与未知，还要在时间相对论的影响下做出艰难抉择：是回到家人身边，还是为人类的未来牺牲一切...</p>
+            <p>本片由克里斯托弗·诺兰执导，结合了硬核科学理论与感人至深的父女亲情，是近年来最受好评的科幻电影之一。</p>
+        </section>
+        
+        <section class="cast">
+            <h2 class="section-title">演职员表</h2>
+            <div class="cast-grid">
+                <div class="cast-member">
+                    <img src="https://example.com/matthew.jpg" alt="马修·麦康纳" class="cast-photo">
+                    <p>马修·麦康纳</p>
+                    <p>饰 库珀</p>
+                </div>
+                <div class="cast-member">
+                    <img src="https://example.com/anne.jpg" alt="安妮·海瑟薇" class="cast-photo">
+                    <p>安妮·海瑟薇</p>
+                    <p>饰 艾米莉亚</p>
+                </div>
+                <div class="cast-member">
+                    <img src="https://example.com/jessica.jpg" alt="杰西卡·查斯坦" class="cast-photo">
+                    <p>杰西卡·查斯坦</p>
+                    <p>饰 墨菲(成年)</p>
+                </div>
+                <div class="cast-member">
+                    <img src="https://example.com/michael.jpg" alt="迈克尔·凯恩" class="cast-photo">
+                    <p>迈克尔·凯恩</p>
+                    <p>饰 布兰德教授</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="trailer">
+            <h2 class="section-title">预告片</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/zSWdZVtXT7E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 电影天堂 - 所有权利保留</p>
+            <p>本网站仅供学习交流使用，不提供任何影片资源</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 简单的交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 收藏按钮点击事件
+            const favBtn = document.querySelector('.btn-outline');
+            favBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.textContent = this.textContent === '收藏' ? '已收藏' : '收藏';
+                alert(this.textContent === '已收藏' ? '已添加到收藏夹' : '已从收藏夹移除');
+            });
+            
+            // 评分动画
+            const stars = document.querySelector('.stars');
+            stars.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            stars.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
